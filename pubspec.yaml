@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   animated_text_kit: ^4.2.2
+  audioplayers: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -53,7 +54,15 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  fonts:
+    - family: Now-Regular
+      fonts:
+        - asset: fonts/asset/Now-Regular.otf
+    - family: Now-Black
+      fonts:
+        - asset: fonts/asset/Now-Black.otf
+      assets:
+        - assets/audio/23times_keyboard.mp3
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -65,10 +74,6 @@ flutter:
   #   - images/a_dot_ham.jpeg
   # assets:
   #   - images/
-  fonts:
-    - family: Now
-      fonts:
-        - asset: fonts/asset/Now-Black.otf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
