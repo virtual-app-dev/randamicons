@@ -56,8 +56,8 @@ dev_dependencies:
 flutter:
   fonts:
     - family: Now-Regular
-      fonts:
-        - asset: fonts/asset/Now-Regular.otf
+      # fonts:
+      #   - asset: fonts/asset/Now-Regular.otf
     - family: Now-Black
       fonts:
         - asset: fonts/asset/Now-Black.otf
