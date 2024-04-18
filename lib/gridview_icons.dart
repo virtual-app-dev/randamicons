@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class GridViewIcons extends StatefulWidget {
@@ -26,7 +28,7 @@ class _GridViewIconsState extends State<GridViewIcons> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              //TODO南くん:ごめん、遷移がうまくできてない..
+              //TODO:画面遷移
               Navigator.pop(context);
             },
             child: Card(
