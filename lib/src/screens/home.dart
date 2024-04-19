@@ -11,15 +11,14 @@ class HomeScreen extends StatelessWidget {
       //TODO:ダークモード対応
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {}), //TODO:設定への遷移を追加
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.elliptical(90, 30),
+          centerTitle: false, // 中央寄せを解除
+          title: const Text(
+            '',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
             ),
           ),
-          elevation: 0,
         ),
         body: MyCustomListView(),
       ),
@@ -110,7 +109,7 @@ class _MyCustomListViewState extends State<MyCustomListView> {
                                     BorderRadius.circular(12.0), // 角の丸み
                               ),
                             ),
-                            child: Text('アイコンを変更'),
+                            child: const Text('アイコンを変更'),
                           ),
                         ),
                       ),
@@ -134,7 +133,7 @@ class _MyCustomListViewState extends State<MyCustomListView> {
                                     BorderRadius.circular(12.0), // 角の丸み
                               ),
                             ),
-                            child: Text('背景色を変更'),
+                            child: const Text('背景色を変更'),
                           ),
                         ),
                       ),
@@ -154,7 +153,7 @@ class _MyCustomListViewState extends State<MyCustomListView> {
                 SizedBox(height: 10), // 元々テキストがあった部分とデザイン要素の間にスペースを追加
                 Container(
                   width: double.infinity, // 親ウィジェットの幅に合わせる
-                  height: 300, // 高さを200に設定
+                  height: 200, // 高さを200に設定
                   decoration: BoxDecoration(
                     color: Colors.blue[100], // 背景色を薄い青に設定
                     borderRadius: BorderRadius.circular(12), // 角を丸くする
