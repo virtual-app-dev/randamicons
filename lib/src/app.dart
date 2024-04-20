@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fonts_app/src/info/information.dart';
 import 'package:fonts_app/src/screens/home.dart';
-import 'package:fonts_app/src/screens/setting.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'randamicons',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -25,7 +25,7 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const _screens = [HomeScreen(), SettingScreen()];
+  static const _screens = [HomeScreen(), InformationScreen()];
 
   int _selectedIndex = 0;
 
@@ -44,7 +44,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: '設定'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.description), label: 'アプリについて'),
           ],
           type: BottomNavigationBarType.fixed,
         ));
