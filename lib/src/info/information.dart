@@ -15,7 +15,14 @@ class InformationScreen extends StatelessWidget {
     final versionInfo = _getVersionInfo();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('アプリについて'),
+        centerTitle: false, // 中央寄せを解除
+        title: const Text(
+          'アプリについて',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
       ),
       body: Container(
         color: Colors.grey[200],
@@ -171,7 +178,7 @@ class InformationScreen extends StatelessWidget {
                               final version = snapshot.data;
                               showLicensePage(
                                 context: context,
-                                applicationName: "Notify",
+                                applicationName: "Randamicons",
                                 applicationVersion: "Version: $version",
                               );
                             } else {
