@@ -4,7 +4,7 @@ import 'package:fonts_app/src/screens/home.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(HomeScreen());
+    await tester.pumpWidget(const HomeScreen());
 
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
