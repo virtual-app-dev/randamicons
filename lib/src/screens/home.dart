@@ -16,12 +16,11 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      //TODO:ダークモード対応
       home: Scaffold(
         appBar: AppBar(
           centerTitle: false, // 中央寄せを解除
           title: const Text(
-            '',
+            'ホーム',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
@@ -170,10 +169,11 @@ class MyCustomListViewState extends State<MyCustomListView> {
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        'Icon Generator', //TODO:文字を検討
-                        textStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
-                              fontFamily: 'fonts/asset/Now-Regular.otf',
-                            ),
+                        'Get icon!', //TODO:文字を検討
+                        textStyle:
+                            Theme.of(context).textTheme.displaySmall?.copyWith(
+                                  fontFamily: 'fonts/asset/Now-Regular.otf',
+                                ),
                         speed: const Duration(milliseconds: 200),
                       ),
                     ],
@@ -193,8 +193,8 @@ class MyCustomListViewState extends State<MyCustomListView> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    'Icon Generator', //TODO:文字を検討
-                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    'Get icon!', //TODO:文字を検討
+                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontFamily: 'fonts/asset/Now-Regular.otf',
                         ),
                   ),
@@ -203,7 +203,8 @@ class MyCustomListViewState extends State<MyCustomListView> {
           // 2行目以降にGridView.builderを使用
           return GridView.builder(
               shrinkWrap: true, // ListView内で正しく表示するためには必須
-              physics: const NeverScrollableScrollPhysics(), // ListViewのスクロールに従うように
+              physics:
+                  const NeverScrollableScrollPhysics(), // ListViewのスクロールに従うように
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // 1列で表示
                 childAspectRatio: 1,
@@ -220,16 +221,27 @@ class MyCustomListViewState extends State<MyCustomListView> {
                         child: FractionallySizedBox(
                           widthFactor: 1,
                           heightFactor: 1,
-                          child: ElevatedButton(
-                            onPressed: changeIcon,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red, // ボタンの内側のパディング
-                              shape: RoundedRectangleBorder(
-                                // ボタンの形状
-                                borderRadius: BorderRadius.circular(12.0), // 角の丸み
+                          child: OutlinedButton(
+                            child: Center(
+                              child: Row(
+                                mainAxisSize:
+                                    MainAxisSize.max, // ボタンの中身を最小限のサイズにする
+                                children: [
+                                  Icon(Icons.touch_app,
+                                      color: Colors.black), // アイコンを指定
+                                  SizedBox(width: 8), // アイコンとテキストの間隔
+                                  Text('アイコン変更'),
+                                ],
                               ),
                             ),
-                            child: const Text('アイコンを変更'),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              side: const BorderSide(),
+                            ),
+                            onPressed: changeIcon,
                           ),
                         ),
                       ),
@@ -243,16 +255,28 @@ class MyCustomListViewState extends State<MyCustomListView> {
                         child: FractionallySizedBox(
                           widthFactor: 1,
                           heightFactor: 1,
-                          child: ElevatedButton(
-                            onPressed: changeColor,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red, // ボタンの内側のパディング
-                              shape: RoundedRectangleBorder(
-                                // ボタンの形状
-                                borderRadius: BorderRadius.circular(12.0), // 角の丸み
+                          child: OutlinedButton(
+                            child: Center(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment
+                                    .center, // ボタンの中身を最小限のサイズにする
+                                children: [
+                                  Icon(Icons.palette,
+                                      color: Colors.black), // アイコンを指定
+                                  SizedBox(width: 8), // アイコンとテキストの間隔
+                                  Text('背景色を変更'),
+                                ],
                               ),
                             ),
-                            child: const Text('背景色を変更'),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              side: const BorderSide(),
+                            ),
+                            onPressed: changeColor, // ここに背景色を変更する関数を指定
                           ),
                         ),
                       ),
@@ -274,7 +298,6 @@ class MyCustomListViewState extends State<MyCustomListView> {
                   width: double.infinity, // 親ウィジェットの幅に合わせる
                   height: 200, // 高さを200に設定
                   decoration: BoxDecoration(
-                    color: Colors.blue[100], // 背景色を薄い青に設定
                     borderRadius: BorderRadius.circular(12), // 角を丸くする
                     boxShadow: [
                       BoxShadow(
@@ -284,7 +307,12 @@ class MyCustomListViewState extends State<MyCustomListView> {
                         offset: const Offset(0, 3), // 影の方向
                       ),
                     ],
+                    image: DecorationImage(
+                      image: AssetImage('images/background.png'), // 背景画像
+                      // fit: BoxFit.cover, // 画像がコンテナにぴったり収まるように調整
+                    ),
                   ),
+
                   // ここに追加のウィジェットを配置できます
                   child: Center(
                     child: RepaintBoundary(
@@ -293,7 +321,8 @@ class MyCustomListViewState extends State<MyCustomListView> {
                         width: 100,
                         height: 100,
                         color: selectedColor,
-                        child: Icon(selectedIcon, color: Colors.white, size: 50),
+                        child:
+                            Icon(selectedIcon, color: Colors.white, size: 50),
                         //child: const Icon(Icons.person, color: Colors.white, size: 50),
                       ),
                     ),
@@ -361,13 +390,16 @@ class MyCustomListViewState extends State<MyCustomListView> {
 
   Future<void> downloadImageToLocal() async {
     try {
-      RenderRepaintBoundary boundary = iconKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+      RenderRepaintBoundary boundary =
+          iconKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
       ui.Image image = await boundary.toImage(pixelRatio: 3.0);
-      ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+      ByteData? byteData =
+          await image.toByteData(format: ui.ImageByteFormat.png);
       Uint8List pngBytes = byteData!.buffer.asUint8List();
       // 一時ディレクトリを取得
       final directory = await getTemporaryDirectory();
-      final imagePath = '${directory.path}/icon_${DateTime.now().millisecondsSinceEpoch}.png';
+      final imagePath =
+          '${directory.path}/icon_${DateTime.now().millisecondsSinceEpoch}.png';
       final imageFile = File(imagePath);
 
       // 画像ファイルを保存
