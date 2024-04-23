@@ -178,7 +178,7 @@ class InformationScreen extends StatelessWidget {
                               final version = snapshot.data;
                               showLicensePage(
                                 context: context,
-                                applicationName: "Randamicons",
+                                applicationName: "Randomicons",
                                 applicationVersion: "Version: $version",
                               );
                             } else {
