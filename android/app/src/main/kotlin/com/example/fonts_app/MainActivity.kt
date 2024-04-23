@@ -1,4 +1,4 @@
-package com.example.fonts_app
+package com.virtual.random_icons
 
 import io.flutter.embedding.android.FlutterActivity
 
