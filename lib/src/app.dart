@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fonts_app/src/info/information.dart';
-import 'package:fonts_app/src/screens/home.dart';
+import 'package:random_icons/src/info/information.dart';
+import 'package:random_icons/src/screens/home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -44,8 +44,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.description), label: 'アプリについて'),
+            BottomNavigationBarItem(icon: Icon(Icons.description), label: 'アプリについて'),
           ],
           type: BottomNavigationBarType.fixed,
         ));
