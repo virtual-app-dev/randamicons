@@ -169,7 +169,7 @@ class MyCustomListViewState extends State<MyCustomListView> {
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        'Get icon!', //TODO:文字を検討
+                        'Get icons!',
                         textStyle:
                             Theme.of(context).textTheme.displaySmall?.copyWith(
                                   fontFamily: 'fonts/asset/Now-Regular.otf',
@@ -193,7 +193,7 @@ class MyCustomListViewState extends State<MyCustomListView> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    'Get icon!', //TODO:文字を検討
+                    'Get icons!',
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontFamily: 'fonts/asset/Now-Regular.otf',
                         ),
