@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'randamicons',
+      title: 'randomicons',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
