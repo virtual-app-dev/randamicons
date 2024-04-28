@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:fonts_app/src/info/agreement.dart';
-import 'package:fonts_app/src/info/developer.dart';
-import 'package:fonts_app/src/info/policy.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:random_icons/src/info/agreement.dart';
+import 'package:random_icons/src/info/developer.dart';
+import 'package:random_icons/src/info/policy.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationScreen extends StatelessWidget {
@@ -38,8 +38,7 @@ class InformationScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -57,16 +56,13 @@ class InformationScreen extends StatelessWidget {
                                 FutureBuilder(
                                   future: versionInfo,
                                   builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
+                                    if (snapshot.connectionState == ConnectionState.waiting) {
                                       // データを取得中の場合はローディングインジケータを表示
                                       return const CircularProgressIndicator();
                                     } else if (snapshot.hasData) {
                                       // データが取得できた場合はバージョン情報を表示
                                       log("${snapshot.data!}");
-                                      return Text(snapshot.data,
-                                          style: const TextStyle(
-                                              color: Colors.grey));
+                                      return Text(snapshot.data, style: const TextStyle(color: Colors.grey));
                                     } else {
                                       // 何らかの理由でデータが取得できなかった場合は代替のウィジェットを表示
                                       return const Text('Unknown version');
@@ -83,14 +79,10 @@ class InformationScreen extends StatelessWidget {
                     const Divider(color: Colors.grey, thickness: 0.7),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AgreementScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AgreementScreen()));
                       },
                       child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -105,8 +97,7 @@ class InformationScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey),
+                                  Icon(Icons.arrow_forward_ios, color: Colors.grey),
                                   SizedBox(width: 15),
                                 ],
                               ),
@@ -117,14 +108,10 @@ class InformationScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PolicyScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const PolicyScreen()));
                       },
                       child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -139,8 +126,7 @@ class InformationScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey),
+                                  Icon(Icons.arrow_forward_ios, color: Colors.grey),
                                   SizedBox(width: 15),
                                 ],
                               ),
@@ -155,8 +141,7 @@ class InformationScreen extends StatelessWidget {
                         // インクウェルウィジェットのonTapに処理を定義
                         return InkWell(
                           onTap: () {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
+                            if (snapshot.connectionState == ConnectionState.waiting) {
                               // ローディング中の場合はダイアログを表示
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -169,8 +154,7 @@ class InformationScreen extends StatelessWidget {
                               // エラーがある場合はSnackBarを表示
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content:
-                                      Text('エラーが発生しました: ${snapshot.error}'),
+                                  content: Text('エラーが発生しました: ${snapshot.error}'),
                                 ),
                               );
                             } else if (snapshot.hasData) {
@@ -191,8 +175,7 @@ class InformationScreen extends StatelessWidget {
                             }
                           },
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
+                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
@@ -207,8 +190,7 @@ class InformationScreen extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Icon(Icons.arrow_forward_ios,
-                                          color: Colors.grey),
+                                      Icon(Icons.arrow_forward_ios, color: Colors.grey),
                                       SizedBox(width: 15),
                                     ],
                                   ),
@@ -221,14 +203,10 @@ class InformationScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const DeveloperScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const DeveloperScreen()));
                       },
                       child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -243,8 +221,7 @@ class InformationScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey),
+                                  Icon(Icons.arrow_forward_ios, color: Colors.grey),
                                   SizedBox(width: 15),
                                 ],
                               ),
@@ -255,12 +232,10 @@ class InformationScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () async {
-                        await _launchURL(
-                            'https://vlog.virtual-glossary.com/contact/');
+                        await _launchURL('https://vlog.virtual-glossary.com/contact/');
                       },
                       child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -275,8 +250,7 @@ class InformationScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey),
+                                  Icon(Icons.arrow_forward_ios, color: Colors.grey),
                                   SizedBox(width: 15),
                                 ],
                               ),
