@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
           centerTitle: false, // 中央寄せを解除
